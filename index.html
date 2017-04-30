@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+ <!-- include bootstrap, jquery for easy div manipulation -->
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+<html>
+<head>
+  
+</head>
+
+<body>
+  
+<h1>Simple Counter</h1>
+
+<div class="container">
+ <table class="table" id="counter">
+ <thead>
+ <tr>
+ <th>Counter</th>
+ </tr>
+ </thead>
+ </table>
+</div>
+
+</body>
+</html>
+
+
+<script src="/socket.io/socket.io.js"></script>
+<script>
+  var socket = io('http://192.168.0.21:4040');
+  socket.on('counter', function (counter) {
+  var html = '<tr><td>' + counter + '</td>';
+  $('#counter').html(counter);
+  console.log(counter);
+  });
+    
+    // socket.emit('counter rx', { my: 'data' });
+  // });
+</script>
